@@ -1,0 +1,2 @@
+PODS_CRYSTALEXPRESSPODSAMPLE_CRYSTALEXPRESSSDK_LIBRARY_SEARCH_PATHS = "$(PODS_ROOT)/CrystalExpressSDK"
+PODS_CRYSTALEXPRESSPODSAMPLE_CRYSTALEXPRESSSDK_OTHER_LDFLAGS = -l"CrystalExpressSDK-1.1.1" -l"c++" -l"sqlite3" -l"z" -framework "AVFoundation" -framework "AdSupport" -framework "CFNetwork" -framework "CoreMedia" -framework "CoreTelephony" -framework "MessageUI" -framework "MobileCoreServices" -framework "SystemConfiguration"
