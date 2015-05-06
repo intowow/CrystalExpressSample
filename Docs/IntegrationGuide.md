@@ -1,4 +1,4 @@
-#CrystalExpress Integration Guide
+#CrystalExpress Integration Guide (v1.1.2)
 ## Table of content
 
 - [CrystalExpress Integration Guide](#crystalexpress-integration-guide)
