@@ -63,6 +63,7 @@ pod "CrystalExpressSDK", '~> 1.2'
 
 ### 2.2 Manual integration
 1. In project build phases "Link Binary With Libraries", add CrystalExpressSDK-x.x.x.a static library
+ - [CrystalExpressSDK-1.2.3](https://s3-ap-northeast-1.amazonaws.com/intowow/ios_manual_sdk/CrystalExpressSDK-1.2.3.zip)
 2. Add header file to your project
 3. Make sure you have the following frameworks added in Build phases
  - Securty.framework
