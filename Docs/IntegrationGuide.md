@@ -778,6 +778,7 @@ error:[Request failed: not found (404)], please reverify your crystal_id is set 
  - If you crash on log like this, add `-ObjC` in TARGETS -> Build Settings -> Linking -> Other Linker Flags
 
 
+
 - UIApplicationInvalidInterfaceOrientation exception?
  - If you encounter the following exception, it means your app doesn't support the rotation which Splash AD need to display.
  - Please reverify the app supported orientation in your project setting.
