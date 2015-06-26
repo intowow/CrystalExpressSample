@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8B739EFCE65F5A3C942AF9FC"
+               BlueprintIdentifier = "80F6814018CA8D67EB67AF43"
                BuildableName = "libPods-CrystalExpressPodSample-SSZipArchive.a"
                BlueprintName = "Pods-CrystalExpressPodSample-SSZipArchive"
                ReferencedContainer = "container:Pods.xcodeproj">

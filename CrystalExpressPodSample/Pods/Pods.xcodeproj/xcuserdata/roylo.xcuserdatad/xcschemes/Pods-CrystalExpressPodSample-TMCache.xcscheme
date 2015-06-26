@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "39E1F5679DA5392830D98B9C"
+               BlueprintIdentifier = "48E21616F7AC687CA13B4CF7"
                BuildableName = "libPods-CrystalExpressPodSample-TMCache.a"
                BlueprintName = "Pods-CrystalExpressPodSample-TMCache"
                ReferencedContainer = "container:Pods.xcodeproj">

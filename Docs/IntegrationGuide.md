@@ -1,4 +1,4 @@
-#CrystalExpress Integration Guide (v1.1.2)
+#CrystalExpress Integration Guide (v1.2.2)
 ## Table of content
 
 - [CrystalExpress Integration Guide](#crystalexpress-integration-guide)
@@ -10,16 +10,17 @@
 	- [3. CrystalExpress APIs](#3-crystalexpress-apis)
 		- [3.1 General AD serving APIs](#31-general-ad-serving-apis)
 			- [I2WAPI.h](#i2wapih)
-		- [3.2 Splash AD](#32-splash-ad)
+		- [3.2 ADEventDelegate](#32-adeventdelegate)
+		- [3.3 Splash AD](#33-splash-ad)
 			- [SplashADHelper.h](#splashadhelperh)
 			- [SplashADInterfaceViewController](#splashadinterfaceviewcontroller)
-		- [3.3 Content AD](#33-content-ad)
+		- [3.4 Content AD](#34-content-ad)
 			- [Complete API](#complete-api)
-		- [3.4 Stream AD](#34-stream-ad)
+		- [3.5 Stream AD](#35-stream-ad)
 			- [Complete API](#complete-api)
-		- [3.5 Flip AD](#35-flip-ad)
+		- [3.6 Flip AD](#36-flip-ad)
 			- [Complete API](#complete-api)
-		- [3.6 Banner AD](#36-banner-ad)
+		- [3.7 Banner AD](#37-banner-ad)
 			- [Complete API](#complete-api)
 	- [4. Register background task](#4-register-background-task)
 	- [5. Register background fetch](#5-register-background-fetch)
@@ -54,14 +55,14 @@ It will look like this.
 CrystalExpress.
 - Add the following code in Podfile
 ```
-pod "CrystalExpressSDK", '~> 1.1'
+pod "CrystalExpressSDK", '~> 1.2'
 ```
 - `pod update` or `pod install`
 - Open workspace that pod generate for you, you're ready to use CrystalExpress
 - Here's a [sample project](https://github.com/roylo/CrystalExpressSample)
 
 ### 2.2 Manual integration
-1. In project build phases "Link Binary With Libraries", add libCrystalSDK-release-x.x.x.a static library
+1. In project build phases "Link Binary With Libraries", add CrystalExpressSDK-x.x.x.a static library
 2. Add header file to your project
 3. Make sure you have the following frameworks added in Build phases
  - Securty.framework
@@ -79,9 +80,6 @@ pod "CrystalExpressSDK", '~> 1.1'
  - libicucore.dylib
 4. Add `-ObjC` in TARGETS -> Build Settings -> Linking -> Other Linker Flags
 5. Add the following files to your project -> Supporting Files
- - kinesis-2013-12-02.json
- - cognito-identity-2014-06-30.json
- - sts-2011-06-15.json
  - CrystalExpress.plist
 6. You can now start using CrystalExpress lib.
 
@@ -91,8 +89,8 @@ pod "CrystalExpressSDK", '~> 1.1'
 ### 3.1 General AD serving APIs
 #### I2WAPI.h
 ```objc
-// initialize I2WAPI with whether to enable verbose log
-+ (void)initWithVerboseLog:(BOOL)enableVerbose;
+// initialize I2WAPI with whether to enable verbose log, and use test mode
++ (void)initWithVerboseLog:(BOOL)enableVerbose isTestMode:(BOOL)testMode;
 
 // return whether CrystalExpress is ready for AD serving
 + (BOOL)isAdServing;
@@ -115,6 +113,10 @@ pod "CrystalExpressSDK", '~> 1.1'
 // update geolocation infomation
 + (void)updateUserLastLocation:(NSDictionary *)location;
 
+#pragma mark - callback method
+// set AD event delegate to get ad impression/click event
++ (void)setAdEventDelegate:(id<I2WADEventDelegate>)delegate;
+
 #pragma mark - deep link
 // handle CrystalExpress related deeplink url
 + (void)handleDeepLinkWithUrl:(NSURL *)url sourceApplication:(NSString *)sourceApplication;
@@ -133,17 +135,36 @@ pod "CrystalExpressSDK", '~> 1.1'
 + (void)getStreamADWithPlacement:(NSString *)placement
                        helperKey:(NSString *)helperKey
                            place:(int)place
+                         adWidth:(CGFloat)adWidth
                          onReady:(void (^)(ADView *adView))ready
                        onFailure:(void (^)(NSError *error))failure
              onPullDownAnimation:(void (^)(UIView *))animation;
 
 + (void)getContentADWithPlacement:(NSString *)placement
-                             isPreroll:(BOOL)isPreroll
-                               onReady:(void (^)(ADView *))ready
-                             onFailure:(void (^)(NSError *))failure
-                   onPullDownAnimation:(void (^)(UIView *))animation;
+                        isPreroll:(BOOL)isPreroll
+                          adWidth:(CGFloat)adWidth
+                          onReady:(void (^)(ADView *))ready
+                        onFailure:(void (^)(NSError *))failure
+              onPullDownAnimation:(void (^)(UIView *))animation;
 ```
-### 3.2 Splash AD
+### 3.2 ADEventDelegate
+- We provide a delegate for user to get AD related events, such as AD impression/click.
+- The delegate object must implement `onAdClick:(NSString *)adId` and `onAdImperssion:(NSString *)adId` to customized the event handling.
+- Be aware of that this delegate is **NOT** callback on main thread.
+
+```objc
+@protocol I2WADEventDelegate <NSObject>
+- (void)onAdClick:(NSString *)adId;
+- (void)onAdImpression:(NSString *)adId;
+@end
+```
+- You can set delegate via I2WAPI.h API
+
+```objc
++ (void)setAdEventDelegate:(id<I2WADEventDelegate>)delegate;
+```
+
+### 3.3 Splash AD
 - We provided a helper class to make integration more easier, via SplashADHelper, you can request different format of Splash ADs
 - SplashADHelper will call delegate function and return a ready `SplashADInterfaceViewController` for you to present.
 
@@ -159,12 +180,10 @@ pod "CrystalExpressSDK", '~> 1.1'
 @end
 
 // We have predefined different modes for Splash AD viewcontroller
-// CE_SPLASH_MODE_HYBRID       --> You might get a multi/single offer Splash AD
 // CE_SPLASH_MODE_MULTI_OFFER  --> You will get a multioffer Splash AD
 // CE_SPLASH_MODE_SINGLE_OFFER --> You will get a singleoffer Splash AD
 typedef NS_ENUM(NSUInteger, CESplashMode) {
     CE_SPLASH_MODE_UNKNOWN,
-    CE_SPLASH_MODE_HYBRID,
     CE_SPLASH_MODE_MULTI_OFFER,
     CE_SPLASH_MODE_SINGLE_OFFER,
 };
@@ -192,7 +211,7 @@ typedef NS_ENUM(NSUInteger, CESplashMode) {
 - (void)SplashAdDidPresentScreen:(SplashADInterfaceViewController *)vc;
 @end
 ```
-### 3.3 Content AD
+### 3.4 Content AD
 - Utilize ContentADHelper class to request content AD and manage AD
 - Init helper by giving a AD placement name.
 - `preroll` can prepare 1 Article AD in advance. Use this function in `ViewDidLoad` or other pre-stage, giving helper more time to prepare a AD.
@@ -239,11 +258,21 @@ typedef NS_ENUM(NSUInteger, CESplashMode) {
 
 ```objc
 // set animation for pulldown card, need to update the module offset below the AD
-__weak typeof(self) weakSelf = self;
-[_contentADHelper setOnPullDownAnimation:^(UIView *view) {
-   float offset = weakSelf.AdOffset + view.frame.size.height;
-   [weakSelf updateBottomContentFromOffset:offset];
-}];
+- (void)onPullDownAnimationWithAD:(UIView *)adView
+{
+    if (adView == _articleADView) {
+        CGRect frame = [_adWrapperView frame];
+        frame.size.height = adView.bounds.size.height + ADMARGIN*2;
+        [_adWrapperView setFrame:frame];
+
+        frame = [_relatedImgView frame];
+        frame.origin.y = _adOffset + _adWrapperView.bounds.size.height;
+        [_relatedImgView setFrame:frame];
+
+        CGFloat finalContentOffset = _adOffset + adView.bounds.size.height + _relatedImgView.bounds.size.height;
+        [_scrollView setContentSize:CGSizeMake(self.view.bounds.size.width, finalContentOffset)];
+    }
+}
 ```
 #### Complete API
 
@@ -263,7 +292,7 @@ __weak typeof(self) weakSelf = self;
 @end
 ```
 
-### 3.4 Stream AD
+### 3.5 Stream AD
 - Utilize StreamADHelper class to request stream AD and manage AD.
 - Init helper by giving a AD placement name.
 - Set delegate for the helper instance.
@@ -275,6 +304,12 @@ __weak typeof(self) weakSelf = self;
 	.....
 
     [self prepareDataSource];
+    if (_streamHelper) {
+        [_streamHelper setDelegate:self];
+        // if you need customized ad width, add this line
+        //[_streamHelper setPreferAdWidth:320.0f];
+        [_streamHelper preroll];
+    }
     [self.tableView reloadData];
     [_streamHelper updateVisiblePosition:[self tableView]];
 
@@ -287,7 +322,7 @@ __weak typeof(self) weakSelf = self;
 [_streamHelper setActive:YES];
 ```
 
-- Call `requestADAtPosition:(int)position` cell position to get a AD UIView.
+- Call `(UIView *)requestADAtPosition:(NSIndexPath *)indexPath` with cell indexPath to get a AD UIView.
 - Sync helper while `scrollViewDidScroll:(UIScrollView *)scrollView` event happened.
 
 ```objc
@@ -326,53 +361,60 @@ __weak typeof(self) weakSelf = self;
 }
 ```
 - Implement `StreamADHelperDelegate` functions
-- `- (int)onADLoaded:(UIView *)adView atPosition:(int)position` need to update table view to insert AD cell. Return the real position inserted in table view, or -1 if fail.
-- While in preroll, there's no need to insert AD in another main loop
+- `- (NSIndexPath *)onADLoaded:(UIView *)adView atIndexPath:(NSIndexPath *)indexPath isPreroll:(BOOL)isPreroll` need to update table view to insert AD cell. Return the real indexPath inserted in table view, or nil if fail.
+- While in preroll, there's no need to insert AD in another main loop.
 
 ```objc
-- (int)onADLoaded:(UIView *)adView atPosition:(int)position isPreroll:(BOOL)isPreroll
+- (NSIndexPath *)onADLoaded:(UIView *)adView atIndexPath:(NSIndexPath *)indexPath isPreroll:(BOOL)isPreroll
 {
     // Don't place ad at the first place!!
-    position = MAX(1, position);
-    if ([_dataSource count] >= position) {
+    int position = MAX(1, [indexPath row]);
+    NSMutableArray *dataSource = [_dataSources objectAtIndex:[indexPath section]];
+    NSIndexPath *finalIndexPath = [NSIndexPath indexPathForRow:position inSection:[indexPath section]];
+
+    if ([dataSource count] >= position) {
         if (isPreroll) {
             NSMutableDictionary *adDict = [[NSMutableDictionary alloc] init];
-            [adDict setObject:[NSNumber numberWithInt:adView.bounds.size.height] forKey:@"height"];
+            CGFloat adHeight = adView.bounds.size.height;
+            [adDict setObject:[NSNumber numberWithFloat:adHeight + 2*_adVerticalMargin] forKey:@"height"];
 
-            NSArray *indexPathsToAdd = @[[NSIndexPath indexPathForRow:position inSection:0]];
+            NSArray *indexPathsToAdd = @[finalIndexPath];
             [[self tableView] beginUpdates];
-            [_dataSource insertObject:adDict atIndex:position];
+            [dataSource insertObject:adDict atIndex:position];
             [[self tableView] insertRowsAtIndexPaths:indexPathsToAdd
                                     withRowAnimation:UITableViewRowAnimationNone];
             [[self tableView] endUpdates];
         } else {
             dispatch_async(dispatch_get_main_queue(), ^(){
                 NSMutableDictionary *adDict = [[NSMutableDictionary alloc] init];
-                [adDict setObject:[NSNumber numberWithInt:adView.bounds.size.height] forKey:@"height"];
+                CGFloat adHeight = adView.bounds.size.height;
+                [adDict setObject:[NSNumber numberWithFloat:adHeight + 2*_adVerticalMargin] forKey:@"height"];
 
-                NSArray *indexPathsToAdd = @[[NSIndexPath indexPathForRow:position inSection:0]];
+                NSArray *indexPathsToAdd = @[finalIndexPath];
                 [[self tableView] beginUpdates];
-                [_dataSource insertObject:adDict atIndex:position];
+                [dataSource insertObject:adDict atIndex:position];
                 [[self tableView] insertRowsAtIndexPaths:indexPathsToAdd
                                         withRowAnimation:UITableViewRowAnimationNone];
                 [[self tableView] endUpdates];
             });
         }
-        return position;
+
+        return finalIndexPath;
     } else {
-        return -1;
+        return nil;
     }
 }
 ```
 
-- If stream AD formats including pulldown card, set `onADAnimation:(UIView *)adView atPosition:(int)position` block to update scroll view while pulldown animating is happened.
+- If stream AD formats including pulldown card, set `- (void)onADAnimation:(UIView *)adView atIndexPath:(NSIndexPath *)indexPath` block to update scroll view while pulldown animating is happened.
 
 ```objc
-- (void)onADAnimation:(UIView *)adView atPosition:(int)position
+- (void)onADAnimation:(UIView *)adView atIndexPath:(NSIndexPath *)indexPath
 {
+    NSMutableArray *dataSource = [_dataSources objectAtIndex:[indexPath section]];
     [UIView animateWithDuration:1.0 delay:0.0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
         [[self tableView] beginUpdates];
-        [[_dataSource objectAtIndex:position] setObject:[NSNumber numberWithInt:adView.bounds.size.height] forKey:@"height"];
+        [[dataSource objectAtIndex:[indexPath row]] setObject:[NSNumber numberWithInt:adView.bounds.size.height + 2*_adVerticalMargin] forKey:@"height"];
         [[self tableView] endUpdates];
     } completion:^(BOOL finished) {
 
@@ -389,17 +431,32 @@ __weak typeof(self) weakSelf = self;
 }
 ```
 
+- Call `cleanADs` when you refresh data source, for example, on pull to refresh.
+
+```objc
+- (void)pullToRefresh
+{
+    [self.pullToRefreshView startLoading];
+    [_streamHelper cleanADs];
+    [self prepareDataSource];
+    [self.tableView reloadData];
+    [_streamHelper updateVisiblePosition:self.tableView];
+    [self.pullToRefreshView finishLoading];
+}
+```
+
 #### Complete API
 ```objc
 #pragma mark - StreamADHelper.h
 
 @class ADView;
 @protocol StreamADHelperDelegate <NSObject>
-// callback function while the stream ad is ready at the request position
-- (int)onADLoaded:(UIView *)adView atPosition:(int)position;
 
-// callback on pull down animation happen
-- (void)onADAnimation:(UIView *)adView atPosition:(int)position;
+// callback delegate while the stream ad is ready at the target indexPath, and indicate whether it is a preroll call
+- (NSIndexPath *)onADLoaded:(UIView *)adView atIndexPath:(NSIndexPath *)indexPath isPreroll:(BOOL)isPreroll;
+
+// callback on pull down animation happen at indexPath
+- (void)onADAnimation:(UIView *)adView atIndexPath:(NSIndexPath *)indexPath;
 
 // callback to check whether the view is in idle state
 - (BOOL)checkIdle;
@@ -415,8 +472,8 @@ __weak typeof(self) weakSelf = self;
 // preroll will request a stream ad for future use
 - (void)preroll;
 
-// request stream ad at stream position
-- (UIView *)requestADAtPosition:(int)position;
+// request stream ad at stream indexPath
+- (UIView *)requestADAtPosition:(NSIndexPath *)indexPath;
 
 // update current table view visible cell
 - (void)updateVisiblePosition:(UITableView *)tableView;
@@ -424,14 +481,23 @@ __weak typeof(self) weakSelf = self;
 // get all loaded ads
 - (NSOrderedSet *)getLoadedAds;
 
-// force all loaded ad stop
+// force all loaded ad stop (ex. stop video playing)
 - (void)stopADs;
 
 // set helper active state, ad will only play in active helper
 - (void)setActive:(BOOL)isActive;
 
-// check whether the position is an AD
-- (BOOL)isAdAtPos:(int)pos;
+// check whether the indexPath is an AD
+- (BOOL)isAdAtIndexPath:(NSIndexPath *)indexPath;
+
+// set prefer AD width
+- (void)setPreferAdWidth:(CGFloat)width;
+
+// get previous setting of AD width, return -1 if user didn't set adWidth before
+- (CGFloat)getCurrentAdWidthSetting;
+
+// remove all loaded ADs, please call this while stream data source reloaded (ex. pull to refresh)
+- (void)cleanADs;
 
 #pragma mark - event listener
 // scroll view did scroll event hook
@@ -442,7 +508,7 @@ __weak typeof(self) weakSelf = self;
 @end
 ```
 -
-### 3.5 Flip AD
+### 3.6 Flip AD
 - Flip AD is one of the splash series AD.
 - Utilize FlipDynamicADHelper class to request flip AD and manage AD.
 - Init helper by giving a AD placement name.
@@ -500,7 +566,7 @@ __weak typeof(self) weakSelf = self;
 }
 ```
 -
-### 3.6 Banner AD
+### 3.7 Banner AD
 - Utilize BannerADHelper class to request banner AD and manage AD.
 - Init helper by giving a AD placement name.
 - Get banner AD view by calling `- (void)requestADonReady:(void (^)(ADView *))ready onFailure:(void (^)(NSError *))failure`
@@ -569,8 +635,11 @@ __weak typeof(self) weakSelf = self;
 ```
 
 ## 6. AD Preview
-In Demo App, you can utilize deeplink to do AD preview, sample url link like follows:
-`crystalexpress://adpreview?adid={number}`
+- By utilizing ios deeplink, we can to do AD preview in real app, sample url link like follows:
+`{urlScheme}://adpreview?adid={number}`
+- First you need to register a URL scheme in you app
+ - in Project > Info > URL Types, register a url scheme for your app to enable the deeplink.
+- Add the following code in `AppDelegate.m` to enable the crystalexpress adPreview function.
 
 ```objc
 #pragma mark - deeplinking

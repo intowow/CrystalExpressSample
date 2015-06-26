@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D59AD41CA743105ECC946A95"
+               BlueprintIdentifier = "D18BDCFD918F206F5D21C11A"
                BuildableName = "libPods-CrystalExpressPodSample-AFNetworking.a"
                BlueprintName = "Pods-CrystalExpressPodSample-AFNetworking"
                ReferencedContainer = "container:Pods.xcodeproj">
