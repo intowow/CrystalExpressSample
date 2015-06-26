@@ -167,6 +167,7 @@ pod "CrystalExpressSDK", '~> 1.2'
 ### 3.3 Splash AD
 - We provided a helper class to make integration more easier, via SplashADHelper, you can request different format of Splash ADs
 - SplashADHelper will call delegate function and return a ready `SplashADInterfaceViewController` for you to present.
+- [Notice] There are both portrait and landscape Splash AD support in our SDK, make sure your app support that kind of rotation before you serving ADs.
 
 #### SplashADHelper.h
 ```objc
@@ -768,11 +769,19 @@ typedef NS_ENUM(NSUInteger, CESplashMode) {
  - open the verbose log while initialize I2WAPI
  - check the log while request AD
 
+```
+// this means your crystal_id is not correct, change it in CrystalExpress.plist
+error:[Request failed: not found (404)], please reverify your crystal_id is set correct
+```
+
 - `[__NSArrayI enumFromString:]: unrecognized selector sent to instance 0x78e37970`
  - If you crash on log like this, add `-ObjC` in TARGETS -> Build Settings -> Linking -> Other Linker Flags
 
 
+- UIApplicationInvalidInterfaceOrientation exception?
+ - If you encounter the following exception, it means your app doesn't support the rotation which Splash AD need to display.
+ - Please reverify the app supported orientation in your project setting.
+
 ```
-// this means your crystal_id is not correct, change it in CrystalExpress.plist
-error:[Request failed: not found (404)], please reverify your crystal_id is set correct
+ *** Terminating app due to uncaught exception 'UIApplicationInvalidInterfaceOrientation', reason: 'Supported orientations has  no common orientation with the application, and [SOSplashADViewController shouldAutorotate] is returning YES'
 ```
