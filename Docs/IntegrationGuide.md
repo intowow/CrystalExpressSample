@@ -79,8 +79,11 @@ pod "CrystalExpressSDK", '~> 1.2'
  - AVFoundation.framework
  - libicucore.dylib
 4. Add `-ObjC` in TARGETS -> Build Settings -> Linking -> Other Linker Flags
-5. Add the following files to your project -> Supporting Files
+5. Add the following files to your project
  - CrystalExpress.plist
+ - cognito-identity-2014-06-30.json
+ - kinesis-2013-12-02.json
+ - sts-2011-06-15.json
 6. You can now start using CrystalExpress lib.
 
 ## 3. CrystalExpress APIs
