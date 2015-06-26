@@ -1,7 +1,7 @@
 # CrystalExpressSample
-- We have provided 3 sample projects here to show how easily one can integrate his own app with CrystalExpress ADs.
+- We have provided 3 sample projects here to show how easily developer can integrate App with CrystalExpress ADs.
 - For more detail integration guide, please refer the [IntegrationGuide](https://github.com/roylo/CrystalExpressSample/blob/master/Docs/IntegrationGuide.md)
-
+- The screen shots here are captured in CrystalExpress Demo
 ![AD in placements](Resources/adInPlacements.png)
 
 ## 1. CrystalExpressApp
