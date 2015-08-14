@@ -8,19 +8,21 @@
 
 #import "ViewController.h"
 #import "I2WAPI.h"
-#import "SplashADInterfaceViewController.h"
-#import "SplashADHelper.h"
 #import "ContentViewController.h"
 #import "StreamSectionViewController.h"
 #import "FlipViewController.h"
+#import "CESplashAD.h"
+#import "CardAdViewController.h"
 
-@interface ViewController () <SplashADHelperDelegate, SplashADViewControllerDelegate>
-@property (nonatomic, strong) SplashADHelper *splashADHelper;
+@interface ViewController () <CESplashADDelegate>
+@property (nonatomic, strong) CESplashAD *openSplashADHelper;
+@property (nonatomic, strong) CESplashAD *interstitialSplashADHelper;
 @property (nonatomic, strong) UIButton *testMultiofferBtn;
 @property (nonatomic, strong) UIButton *testSplashBtn;
 @property (nonatomic, strong) UIButton *testContentBtn;
 @property (nonatomic, strong) UIButton *testStreamBtn;
 @property (nonatomic, strong) UIButton *testFlipBtn;
+@property (nonatomic, strong) UIButton *testCardAdBtn;
 @end
 
 @implementation ViewController
@@ -31,8 +33,8 @@
     
     int screenHeight = [[UIScreen mainScreen] bounds].size.height;
     
-    _splashADHelper = [[SplashADHelper alloc] init];
-    [_splashADHelper setDelegate:self];
+    _openSplashADHelper = [[CESplashAD alloc] initWithPlacement:@"OPEN_SPLASH" delegate:self];
+    _interstitialSplashADHelper = [[CESplashAD alloc] initWithPlacement:@"INTERSTITIAL_SPLASH" delegate:self];
     
     CGFloat spaceHeight = screenHeight / 25;
     CGFloat btnHeight = spaceHeight * 1.8;
@@ -42,9 +44,10 @@
     _testContentBtn = [self createBtnWithTag:3 title:@"CONTENT_AD"];
     _testStreamBtn = [self createBtnWithTag:4 title:@"STREAM_AD"];
     _testFlipBtn = [self createBtnWithTag:5 title:@"FLIP_BANNER_AD"];
+    _testCardAdBtn = [self createBtnWithTag:6 title:@"CARD_AD"];
 
-    NSString *VConstraint = @"V:|-30-[_testMultiofferBtn(btnHeight)]-10-[_testSplashBtn(btnHeight)]-10-[_testContentBtn(btnHeight)]-10-[_testStreamBtn(btnHeight)]-10-[_testFlipBtn(btnHeight)]";
-    [[self view] addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:VConstraint options:NSLayoutFormatDirectionLeadingToTrailing metrics:[NSDictionary dictionaryWithObject:[NSNumber numberWithFloat:btnHeight] forKey:@"btnHeight"] views:NSDictionaryOfVariableBindings(_testMultiofferBtn, _testSplashBtn, _testContentBtn, _testStreamBtn, _testFlipBtn)]];
+    NSString *VConstraint = @"V:|-30-[_testMultiofferBtn(btnHeight)]-10-[_testSplashBtn(btnHeight)]-10-[_testContentBtn(btnHeight)]-10-[_testStreamBtn(btnHeight)]-10-[_testFlipBtn(btnHeight)]-10-[_testCardAdBtn(btnHeight)]";
+    [[self view] addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:VConstraint options:NSLayoutFormatDirectionLeadingToTrailing metrics:[NSDictionary dictionaryWithObject:[NSNumber numberWithFloat:btnHeight] forKey:@"btnHeight"] views:NSDictionaryOfVariableBindings(_testMultiofferBtn, _testSplashBtn, _testContentBtn, _testStreamBtn, _testFlipBtn, _testCardAdBtn)]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -63,13 +66,13 @@
     [sender setBackgroundColor:[UIColor blueColor]];
     switch ([sender tag]) {
         case 1:
-            [_splashADHelper requestSplashADWithPlacement:@"OPEN_SPLASH" mode:CE_SPLASH_MODE_HYBRID];
+            [_openSplashADHelper loadAd];
             break;
         case 2:
-            [_splashADHelper requestSplashADWithPlacement:@"INTERSTITIAL_SPLASH" mode:CE_SPLASH_MODE_SINGLE_OFFER];
+//            [_interstitialSplashADHelper loadAd];
             break;
         case 3:
-            [self.navigationController pushViewController:[[ContentViewController alloc] initWithPlacementName:@"CONTENT"] animated:YES];
+            [self.navigationController pushViewController:[[ContentViewController alloc] init] animated:YES];
             break;
         case 4:
             [self.navigationController pushViewController:[[StreamSectionViewController alloc] initWithPlacementName:@"STREAM"] animated:YES];
@@ -77,37 +80,38 @@
         case 5:
             [self.navigationController pushViewController:[[FlipViewController alloc] initWithPlacementName:@"FLIP"] animated:YES];
             break;
+        case 6:
+            [self.navigationController pushViewController:[[CardAdViewController alloc] init] animated:YES];
+            break;
         default:
             break;
     }
     
 }
 
-#pragma mark - SplashADHelperDelegate method
-- (void)SplashADDidReceiveAd:(NSArray *)ad viewController:(SplashADInterfaceViewController *)vc
+#pragma mark - CESplashADDelegate method
+- (void)CESplashADDidReceiveAd:(NSArray *)ad viewController:(SplashADInterfaceViewController *)vc
 {
-    [vc setDelegate:self];
-    [self presentViewController:vc animated:YES completion:nil];
+    [_openSplashADHelper showFromViewController:self animated:YES];
 }
 
-- (void)SplashADDidFailToReceiveAdWithError:(NSError *)error viewController:(SplashADInterfaceViewController *)vc
-{
-}
-
-#pragma mark - SplashADViewControllerDelegate method
-- (void)SplashAdWillPresentScreen:(SplashADInterfaceViewController *)vc
+- (void)CESplashADDidFailToReceiveAdWithError:(NSError *)error viewController:(SplashADInterfaceViewController *)vc
 {
 }
 
-- (void)SplashAdDidPresentScreen:(SplashADInterfaceViewController *)vc
+- (void)CESplashAdWillPresentScreen:(SplashADInterfaceViewController *)vc
 {
 }
 
-- (void)SplashAdWillDismissScreen:(SplashADInterfaceViewController *)vc
+- (void)CESplashAdDidPresentScreen:(SplashADInterfaceViewController *)vc
 {
 }
 
-- (void)SplashAdDidDismissScreen:(SplashADInterfaceViewController *)vc
+- (void)CESplashAdWillDismissScreen:(SplashADInterfaceViewController *)vc
+{
+}
+
+- (void)CESplashAdDidDismissScreen:(SplashADInterfaceViewController *)vc
 {
 }
 
