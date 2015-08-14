@@ -5,6 +5,7 @@
 ![AD in placements](Resources/adInPlacements.png)
 
 ## 1. CrystalExpressApp
+- Use **CrystalExpressApp.xcworkspace**
 - Integration via Cocoapods
 - Open source version for CrystalExpress Demo app.
 - Show integration method with following AD placements in a traditional content provider app.
@@ -14,6 +15,7 @@
  - In-Read AD
 
 ## 2. CrystalExpressPodSample
+- Use **CrystalExpressCNPodSample.xcworkspace**
 - Integration with Cocoapods
 - Simple buttons to show how to use CrystalExpress API to get ADs.
 
