@@ -1,1 +1,1 @@
-../../../CrystalExpressSDK/Headers/FlipDynamicADHelper.h
+../../../CrystalExpressSDK/Sources/FlipDynamicADHelper.h

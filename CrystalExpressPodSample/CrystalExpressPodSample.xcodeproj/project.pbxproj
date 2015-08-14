@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		97A7A80E4F9829AB26CAE394 /* libPods-CrystalExpressPodSample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FF4B4834F07161830111147 /* libPods-CrystalExpressPodSample.a */; };
+		D5C1D89B1B7CA13A0038C3D5 /* CardAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5C1D89A1B7CA13A0038C3D5 /* CardAdViewController.m */; };
 		D5C605031AF08937004EA12C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D5C605021AF08937004EA12C /* main.m */; };
 		D5C605061AF08937004EA12C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D5C605051AF08937004EA12C /* AppDelegate.m */; };
 		D5C605091AF08937004EA12C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5C605081AF08937004EA12C /* ViewController.m */; };
@@ -36,6 +37,8 @@
 /* Begin PBXFileReference section */
 		4318A26E6606B59DA6E07DB4 /* Pods-CrystalExpressPodSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrystalExpressPodSample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CrystalExpressPodSample/Pods-CrystalExpressPodSample.debug.xcconfig"; sourceTree = "<group>"; };
 		5FF4B4834F07161830111147 /* libPods-CrystalExpressPodSample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CrystalExpressPodSample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5C1D8991B7CA13A0038C3D5 /* CardAdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardAdViewController.h; path = ADViewControllers/CardAdViewController.h; sourceTree = "<group>"; };
+		D5C1D89A1B7CA13A0038C3D5 /* CardAdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CardAdViewController.m; path = ADViewControllers/CardAdViewController.m; sourceTree = "<group>"; };
 		D5C604FD1AF08937004EA12C /* CrystalExpressPodSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrystalExpressPodSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5C605011AF08937004EA12C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D5C605021AF08937004EA12C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -159,6 +162,8 @@
 		D5C605311AF0C0B6004EA12C /* ADViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D5C1D8991B7CA13A0038C3D5 /* CardAdViewController.h */,
+				D5C1D89A1B7CA13A0038C3D5 /* CardAdViewController.m */,
 				D5C605321AF0C0C5004EA12C /* ContentViewController.h */,
 				D5C605331AF0C0C5004EA12C /* ContentViewController.m */,
 				D5C605341AF0C0C5004EA12C /* FlipViewController.h */,
@@ -324,6 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5C605461AF0D888004EA12C /* StreamSectionViewController.m in Sources */,
+				D5C1D89B1B7CA13A0038C3D5 /* CardAdViewController.m in Sources */,
 				D5C605381AF0C0C5004EA12C /* ContentViewController.m in Sources */,
 				D5C605091AF08937004EA12C /* ViewController.m in Sources */,
 				D5C605401AF0C7AE004EA12C /* LayoutUtils.m in Sources */,

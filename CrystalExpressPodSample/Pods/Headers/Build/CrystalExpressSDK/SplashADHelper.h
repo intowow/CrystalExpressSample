@@ -1,1 +1,0 @@
-../../../CrystalExpressSDK/Headers/SplashADHelper.h

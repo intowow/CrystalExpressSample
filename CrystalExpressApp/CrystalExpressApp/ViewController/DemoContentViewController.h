@@ -8,10 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@class ContentADHelper;
 @interface DemoContentViewController : UIViewController
-
--(instancetype)initWithADHelper:(ContentADHelper *)helper;
 - (void)loadContentWithId:(NSString *)articleId;
-- (void)onPullDownAnimationWithAD:(UIView *)adView;
 @end

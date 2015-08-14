@@ -1,1 +1,0 @@
-../../../CrystalExpressSDK/Headers/StreamADHelper.h

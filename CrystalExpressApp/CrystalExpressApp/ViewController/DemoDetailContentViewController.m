@@ -10,7 +10,6 @@
 #import "LayoutUtils.h"
 #import "DemoContentViewController.h"
 #import "DemoFlipADViewController.h"
-#import "ContentADHelper.h"
 #import "FlipDynamicADHelper.h"
 #import "AppUtils.h"
 
@@ -22,7 +21,6 @@
 @property (nonatomic, assign) NSUInteger curIndex;
 @property (nonatomic, strong) NSMutableArray *articleVCPool;
 @property (nonatomic, strong) NSMutableArray *contentVCs;
-@property (nonatomic, strong) ContentADHelper *articleADHelper;
 @property (nonatomic, strong) FlipDynamicADHelper *flipADHelper;
 @property (nonatomic, strong) DemoFlipADViewController *flipADVC;
 @end
@@ -36,15 +34,8 @@
         _curIndex = index;
         _articleVCPool = [[NSMutableArray alloc] init];
         _contentVCs = [[NSMutableArray alloc] init];
-        _articleADHelper = [[ContentADHelper alloc] initWithPlacement:[AppUtils decidePlacementName:@"CONTENT"]];
         _flipADHelper = [[FlipDynamicADHelper alloc] initWithPlacement:[AppUtils decidePlacementName:@"FLIP"] pageIndex:_curIndex];
         
-        // set animation for pulldown card, need to update the module offset below the AD
-        __weak typeof(self) weakSelf = self;
-        [_articleADHelper setOnPullDownAnimation:^(UIView *view) {
-            [[weakSelf.contentVCs objectAtIndex:weakSelf.curIndex] onPullDownAnimationWithAD:view];
-        }];
-        [_articleADHelper preroll];
     
     }
     return self;
@@ -220,7 +211,7 @@
         }
     }
     
-    DemoContentViewController *newContentVC = [[DemoContentViewController alloc] initWithADHelper:_articleADHelper];
+    DemoContentViewController *newContentVC = [[DemoContentViewController alloc] init];
     [_articleVCPool addObject:newContentVC];
     [self addChildViewController:newContentVC];
     [_scrollView addSubview:[newContentVC view]];

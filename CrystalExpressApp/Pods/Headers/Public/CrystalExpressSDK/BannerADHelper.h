@@ -1,1 +1,1 @@
-../../../CrystalExpressSDK/Headers/BannerADHelper.h
+../../../CrystalExpressSDK/Sources/BannerADHelper.h
