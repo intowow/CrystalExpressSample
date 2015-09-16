@@ -22,4 +22,3 @@
 ## 3. CrystalExpressManualSample
 - Integration with manual library include
 - Simple buttons to show how to use CrystalExpress API to get ADs.
-- You need to download CrystalExpress static library [here](https://s3-ap-northeast-1.amazonaws.com/intowow/ios_manual_sdk/CrystalExpressSDK-1.2.3.zip), and add `CrystalExpressSDK-x.x.x.a` into sample project space by yourself since github has the policy that cannot upload file over 100MB size.
