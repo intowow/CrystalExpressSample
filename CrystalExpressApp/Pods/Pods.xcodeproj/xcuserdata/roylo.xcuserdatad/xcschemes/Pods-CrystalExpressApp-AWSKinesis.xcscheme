@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4215CD298078B2AE00D267C5"
+               BlueprintIdentifier = "BA2B4B7FCA4C393DDE86A3D5"
                BuildableName = "libPods-CrystalExpressApp-AWSKinesis.a"
                BlueprintName = "Pods-CrystalExpressApp-AWSKinesis"
                ReferencedContainer = "container:Pods.xcodeproj">
