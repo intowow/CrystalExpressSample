@@ -14,21 +14,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-CrystalExpressApp-AWSCognito.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-CrystalExpressApp-AWSCore.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-CrystalExpressApp-AWSKinesis.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-CrystalExpressApp-CrystalExpressSDK.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -77,72 +62,57 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>24378B74E1D6BB4E01FC8DD6</key>
+		<key>1E122349CD0B81061FC59822</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3C118A797D13DEE09F79033D</key>
+		<key>52764F8936FBE72F7CBC45D3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6065822B4BDF270A310DFB11</key>
+		<key>52A9D77E92019AD8D3BE529F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>73B28372723E36A340C43A4F</key>
+		<key>5BA0EFB5CD6C845482724F59</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>793BC1D289000B7A13D71F81</key>
+		<key>8D0FD698111C2A1D0730FDED</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9CBFDFF8F18DC26852F63FBD</key>
+		<key>A10317BE99A38D10DCA8DFBA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A23905E495B8BAF2FF545954</key>
+		<key>B6FF8282F23CA863A3D9B104</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AA10385B30FAFD765C02EFA8</key>
+		<key>C874FF1E8FDF7678BEC5A730</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B87F325F6363C0EC7923FC8A</key>
+		<key>CD8FB048A893FEAF0754C137</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BA2B4B7FCA4C393DDE86A3D5</key>
+		<key>E89410B123ECD4CD9EF4BF19</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BAEB1420F1603A6BE57A76F7</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C9672B94802EB54C69859CBD</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F43F6B4B02F1640A6AC91F6F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F473CFA372435465463E3C1C</key>
+		<key>FCE102246493CFEF3DE80808</key>
 		<dict>
 			<key>primary</key>
 			<true/>
