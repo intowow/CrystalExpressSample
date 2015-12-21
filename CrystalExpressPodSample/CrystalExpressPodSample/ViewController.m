@@ -16,13 +16,11 @@
 
 @interface ViewController () <CESplashADDelegate>
 @property (nonatomic, strong) CESplashAD *openSplashADHelper;
-@property (nonatomic, strong) CESplashAD *interstitialSplashADHelper;
-@property (nonatomic, strong) UIButton *testMultiofferBtn;
-@property (nonatomic, strong) UIButton *testSplashBtn;
+@property (nonatomic, strong) UIButton *testOpenSplashBtn;
 @property (nonatomic, strong) UIButton *testContentBtn;
 @property (nonatomic, strong) UIButton *testStreamBtn;
-@property (nonatomic, strong) UIButton *testFlipBtn;
 @property (nonatomic, strong) UIButton *testCardAdBtn;
+@property (nonatomic, strong) UIButton *testFixedPositionStreamBtn;
 @end
 
 @implementation ViewController
@@ -34,20 +32,18 @@
     int screenHeight = [[UIScreen mainScreen] bounds].size.height;
     
     _openSplashADHelper = [[CESplashAD alloc] initWithPlacement:@"OPEN_SPLASH" delegate:self];
-    _interstitialSplashADHelper = [[CESplashAD alloc] initWithPlacement:@"INTERSTITIAL_SPLASH" delegate:self];
     
     CGFloat spaceHeight = screenHeight / 25;
     CGFloat btnHeight = spaceHeight * 1.8;
     
-    _testMultiofferBtn = [self createBtnWithTag:1 title:@"OPEN_SPLASH_CPM"];
-    _testSplashBtn = [self createBtnWithTag:2 title:@"SPLASH_CPM"];
-    _testContentBtn = [self createBtnWithTag:3 title:@"CONTENT_AD"];
-    _testStreamBtn = [self createBtnWithTag:4 title:@"STREAM_AD"];
-    _testFlipBtn = [self createBtnWithTag:5 title:@"FLIP_BANNER_AD"];
-    _testCardAdBtn = [self createBtnWithTag:6 title:@"CARD_AD"];
+    _testOpenSplashBtn = [self createBtnWithTag:1 title:@"OPEN_SPLASH_AD"];
+    _testContentBtn = [self createBtnWithTag:2 title:@"CONTENT_AD"];
+    _testStreamBtn = [self createBtnWithTag:3 title:@"STREAM_AD"];
+    _testCardAdBtn = [self createBtnWithTag:4 title:@"CARD_AD"];
+    _testFixedPositionStreamBtn = [self createBtnWithTag:5 title:@"FIXED_POS_STREAM_AD"];
 
-    NSString *VConstraint = @"V:|-30-[_testMultiofferBtn(btnHeight)]-10-[_testSplashBtn(btnHeight)]-10-[_testContentBtn(btnHeight)]-10-[_testStreamBtn(btnHeight)]-10-[_testFlipBtn(btnHeight)]-10-[_testCardAdBtn(btnHeight)]";
-    [[self view] addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:VConstraint options:NSLayoutFormatDirectionLeadingToTrailing metrics:[NSDictionary dictionaryWithObject:[NSNumber numberWithFloat:btnHeight] forKey:@"btnHeight"] views:NSDictionaryOfVariableBindings(_testMultiofferBtn, _testSplashBtn, _testContentBtn, _testStreamBtn, _testFlipBtn, _testCardAdBtn)]];
+    NSString *VConstraint = @"V:|-30-[_testOpenSplashBtn(btnHeight)]-10-[_testContentBtn(btnHeight)]-10-[_testStreamBtn(btnHeight)]-10-[_testCardAdBtn(btnHeight)]-10-[_testFixedPositionStreamBtn(btnHeight)]";
+    [[self view] addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:VConstraint options:NSLayoutFormatDirectionLeadingToTrailing metrics:[NSDictionary dictionaryWithObject:[NSNumber numberWithFloat:btnHeight] forKey:@"btnHeight"] views:NSDictionaryOfVariableBindings(_testOpenSplashBtn, _testContentBtn, _testStreamBtn, _testCardAdBtn, _testFixedPositionStreamBtn)]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -69,19 +65,16 @@
             [_openSplashADHelper loadAd];
             break;
         case 2:
-//            [_interstitialSplashADHelper loadAd];
-            break;
-        case 3:
             [self.navigationController pushViewController:[[ContentViewController alloc] init] animated:YES];
             break;
-        case 4:
+        case 3:
             [self.navigationController pushViewController:[[StreamSectionViewController alloc] initWithPlacementName:@"STREAM"] animated:YES];
             break;
-        case 5:
-            [self.navigationController pushViewController:[[FlipViewController alloc] initWithPlacementName:@"FLIP"] animated:YES];
-            break;
-        case 6:
+        case 4:
             [self.navigationController pushViewController:[[CardAdViewController alloc] init] animated:YES];
+            break;
+        case 5:
+            [self.navigationController pushViewController:[[StreamSectionViewController alloc] initWithAdTagName:@"SPORT"] animated:YES];
             break;
         default:
             break;

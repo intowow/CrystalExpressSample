@@ -204,6 +204,7 @@
 				D5C604FA1AF08937004EA12C /* Frameworks */,
 				D5C604FB1AF08937004EA12C /* Resources */,
 				FAE3383B101BF983757B9EBD /* Copy Pods Resources */,
+				93D0EDF2BFF3DBEBF1D9B37C /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -291,6 +292,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		93D0EDF2BFF3DBEBF1D9B37C /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CrystalExpressPodSample/Pods-CrystalExpressPodSample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		DDA8F3A6AFDEC2757CF9435B /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

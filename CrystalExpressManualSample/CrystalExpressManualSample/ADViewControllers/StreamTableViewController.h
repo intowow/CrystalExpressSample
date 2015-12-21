@@ -10,4 +10,5 @@
 
 @interface StreamTableViewController : UITableViewController <UITableViewDelegate>
 - (instancetype)initWithPlacementName:(NSString *)placementName;
+- (instancetype)initWithAdTagName:(NSString *)tagName;
 @end

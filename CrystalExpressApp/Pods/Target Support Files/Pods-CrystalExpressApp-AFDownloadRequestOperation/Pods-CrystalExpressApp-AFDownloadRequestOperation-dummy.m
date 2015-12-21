@@ -1,5 +1,0 @@
-#import <Foundation/Foundation.h>
-@interface PodsDummy_Pods_CrystalExpressApp_AFDownloadRequestOperation : NSObject
-@end
-@implementation PodsDummy_Pods_CrystalExpressApp_AFDownloadRequestOperation
-@end

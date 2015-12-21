@@ -21,6 +21,8 @@
 @property (nonatomic, strong) CETableViewADHelper *adHelper;
 @property (nonatomic, strong) NSString *sectionName;
 @property (nonatomic, strong) NSMutableArray *appAdIndexPaths;
+@property (nonatomic, strong) NSString *placementName;
+@property (nonatomic, strong) NSString *tagName;
 @end
 
 @implementation StreamTableViewController
@@ -33,6 +35,20 @@
         _dataSources = [[NSMutableArray alloc] init];
         _sectionName = @"business";
         _appAdIndexPaths = [[NSMutableArray alloc] init];
+        _placementName = placementName;
+    }
+    return self;
+}
+
+- (instancetype)initWithAdTagName:(NSString *)tagName
+{
+    self = [super init];
+    if (self) {
+        _contentImages = [[NSMutableArray alloc] init];
+        _dataSources = [[NSMutableArray alloc] init];
+        _sectionName = @"business";
+        _appAdIndexPaths = [[NSMutableArray alloc] init];
+        _tagName = tagName;
     }
     return self;
 }
@@ -74,7 +90,11 @@
 
 - (void)setupStreamADHelper
 {
-    _adHelper = [CETableViewADHelper helperWithTableView:self.tableView viewController:self placement:@"STREAM"];
+    if (_placementName != nil && ![_placementName isEqual:@""]) {
+        _adHelper = [CETableViewADHelper helperWithTableView:self.tableView viewController:self placement:_placementName];
+    } else {
+        _adHelper = [CETableViewADHelper helperWithTableView:self.tableView viewController:self adTag:_tagName];
+    }
     
 //    [self addAppAdsIndexPaths];
     

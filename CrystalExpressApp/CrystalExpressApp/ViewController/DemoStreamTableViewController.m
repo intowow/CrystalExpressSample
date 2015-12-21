@@ -79,9 +79,18 @@
 #pragma mark - stream AD helper
 - (void)setupStreamAdHelper
 {
-    _streamAdHelper = [CETableViewADHelper helperWithTableView:self.tableView
-                                                viewController:self
-                                                     placement:@"STREAM"];
+    if ([self.sectionName isEqualToString:@"news"]) {
+        _streamAdHelper = [CETableViewADHelper helperWithTableView:self.tableView viewController:self adTag:@"NEWS"];
+    } else if ([self.sectionName isEqualToString:@"sport"]) {
+        _streamAdHelper = [CETableViewADHelper helperWithTableView:self.tableView viewController:self adTag:@"SPORT"];
+    } else if ([self.sectionName isEqualToString:@"business"]) {
+        _streamAdHelper = [CETableViewADHelper helperWithTableView:self.tableView viewController:self adTag:@"BUSINESS"];
+    } else if ([self.sectionName isEqualToString:@"earth"]) {
+        _streamAdHelper = [CETableViewADHelper helperWithTableView:self.tableView viewController:self adTag:@"EARTH"];
+    } else if ([self.sectionName isEqualToString:@"future"]) {
+        _streamAdHelper = [CETableViewADHelper helperWithTableView:self.tableView viewController:self adTag:@"FUTURE"];
+    }
+
     [_streamAdHelper loadAd];
 }
 

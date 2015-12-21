@@ -1,6 +1,6 @@
 //
 //  CardAdViewController.h
-//  CrystalExpressCNManualSample
+//  CrystalExpressManualSample
 //
 //  Created by roylo on 2015/8/11.
 //  Copyright (c) 2015年 intowow. All rights reserved.

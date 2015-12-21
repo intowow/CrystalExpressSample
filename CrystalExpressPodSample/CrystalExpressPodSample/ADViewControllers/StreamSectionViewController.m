@@ -13,6 +13,7 @@
 @interface StreamSectionViewController () <UIScrollViewDelegate>
 @property (nonatomic, strong) UIScrollView *contentView;
 @property (nonatomic, strong) NSString *placementName;
+@property (nonatomic, strong) NSString *tagName;
 @end
 
 @implementation StreamSectionViewController
@@ -21,6 +22,15 @@
     self = [super init];
     if (self) {
         _placementName = placementName;
+    }
+    return self;
+}
+
+- (instancetype)initWithAdTagName:(NSString *)tagName
+{
+    self = [super init];
+    if (self) {
+        _tagName = tagName;
     }
     return self;
 }
@@ -64,7 +74,13 @@
     [_contentView setShowsVerticalScrollIndicator:NO];
     [[self view] addSubview:_contentView];
 
-    StreamTableViewController *vc = [[StreamTableViewController alloc] initWithPlacementName:_placementName];
+    StreamTableViewController *vc;
+    if (_placementName != nil && ![_placementName isEqual:@""]) {
+        vc = [[StreamTableViewController alloc] initWithPlacementName:_placementName];
+    } else {
+        vc = [[StreamTableViewController alloc] initWithAdTagName:_tagName];
+    }
+
     if ([vc.view superview] == nil) {
         CGRect frame = [_contentView frame];
         frame.origin.x = 0;

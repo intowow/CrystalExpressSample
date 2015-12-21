@@ -10,4 +10,5 @@
 
 @interface StreamSectionViewController : UIViewController
 - (instancetype)initWithPlacementName:(NSString *)placementName;
+- (instancetype)initWithAdTagName:(NSString *)tagName;
 @end

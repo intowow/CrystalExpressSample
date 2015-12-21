@@ -43,7 +43,7 @@
 		D5D977491BE733EE0017D960 /* CEStreamTagADHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D9773C1BE733EE0017D960 /* CEStreamTagADHelper.m */; };
 		D5D9774A1BE733EE0017D960 /* CETableViewADHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D9773E1BE733EE0017D960 /* CETableViewADHelper.m */; };
 		D5D9774B1BE733EE0017D960 /* CrystalExpress.plist in Resources */ = {isa = PBXBuildFile; fileRef = D5D9773F1BE733EE0017D960 /* CrystalExpress.plist */; };
-		D5D9774C1BE733EE0017D960 /* CrystalExpressSDK-1.5.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D5D977401BE733EE0017D960 /* CrystalExpressSDK-1.5.0.a */; };
+		F3D3ED4D1C27FFD200BF6709 /* CrystalExpressSDK-1.6.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F3D3ED4C1C27FFD200BF6709 /* CrystalExpressSDK-1.6.2.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,9 +115,11 @@
 		D5D9773D1BE733EE0017D960 /* CETableViewADHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CETableViewADHelper.h; sourceTree = "<group>"; };
 		D5D9773E1BE733EE0017D960 /* CETableViewADHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CETableViewADHelper.m; sourceTree = "<group>"; };
 		D5D9773F1BE733EE0017D960 /* CrystalExpress.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CrystalExpress.plist; sourceTree = "<group>"; };
-		D5D977401BE733EE0017D960 /* CrystalExpressSDK-1.5.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "CrystalExpressSDK-1.5.0.a"; sourceTree = "<group>"; };
 		D5D977411BE733EE0017D960 /* FlipDynamicADHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlipDynamicADHelper.h; sourceTree = "<group>"; };
 		D5D977421BE733EE0017D960 /* I2WAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = I2WAPI.h; sourceTree = "<group>"; };
+		F3D3ED4A1C27FFD200BF6709 /* CEMediaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEMediaView.h; sourceTree = "<group>"; };
+		F3D3ED4B1C27FFD200BF6709 /* CENativeAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CENativeAd.h; sourceTree = "<group>"; };
+		F3D3ED4C1C27FFD200BF6709 /* CrystalExpressSDK-1.6.2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "CrystalExpressSDK-1.6.2.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,7 +130,6 @@
 				D56A9AA31BA8061A0074501F /* Security.framework in Frameworks */,
 				D5C7D0AD1B3D092200FEC621 /* AVFoundation.framework in Frameworks */,
 				D5C7D0AB1B3D091C00FEC621 /* libicucore.dylib in Frameworks */,
-				D5D9774C1BE733EE0017D960 /* CrystalExpressSDK-1.5.0.a in Frameworks */,
 				D5C7D0A91B3D090F00FEC621 /* libsqlite3.dylib in Frameworks */,
 				D5C7D0A71B3D090A00FEC621 /* CoreMedia.framework in Frameworks */,
 				D5C7D0A51B3D08F000FEC621 /* CoreTelephony.framework in Frameworks */,
@@ -138,6 +139,7 @@
 				D5C7D09D1B3D08CD00FEC621 /* SystemConfiguration.framework in Frameworks */,
 				D5C7D09B1B3D08C300FEC621 /* MobileCoreServices.framework in Frameworks */,
 				D5C7D0991B3D08AF00FEC621 /* MessageUI.framework in Frameworks */,
+				F3D3ED4D1C27FFD200BF6709 /* CrystalExpressSDK-1.6.2.a in Frameworks */,
 				D5C7D0971B3D08AA00FEC621 /* CFNetwork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -155,6 +157,7 @@
 		D586F1E41BA0418B0037156B /* CrystalExpressSDK */ = {
 			isa = PBXGroup;
 			children = (
+				F3D3ED4C1C27FFD200BF6709 /* CrystalExpressSDK-1.6.2.a */,
 				D5D9772D1BE733EE0017D960 /* CEAdInvocation.h */,
 				D5D9772E1BE733EE0017D960 /* CEAdInvocation.m */,
 				D5D9772F1BE733EE0017D960 /* CEADView.h */,
@@ -164,6 +167,8 @@
 				D5D977331BE733EE0017D960 /* CECardADHelper.m */,
 				D5D977341BE733EE0017D960 /* CEContentADHelper.h */,
 				D5D977351BE733EE0017D960 /* CEContentADHelper.m */,
+				F3D3ED4A1C27FFD200BF6709 /* CEMediaView.h */,
+				F3D3ED4B1C27FFD200BF6709 /* CENativeAd.h */,
 				D5D977361BE733EE0017D960 /* CESplashAD.h */,
 				D5D977371BE733EE0017D960 /* CEStreamADHelper.h */,
 				D5D977381BE733EE0017D960 /* CEStreamADHelper.m */,
@@ -174,7 +179,6 @@
 				D5D9773D1BE733EE0017D960 /* CETableViewADHelper.h */,
 				D5D9773E1BE733EE0017D960 /* CETableViewADHelper.m */,
 				D5D9773F1BE733EE0017D960 /* CrystalExpress.plist */,
-				D5D977401BE733EE0017D960 /* CrystalExpressSDK-1.5.0.a */,
 				D5D977411BE733EE0017D960 /* FlipDynamicADHelper.h */,
 				D5D977421BE733EE0017D960 /* I2WAPI.h */,
 			);
@@ -479,7 +483,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -516,7 +520,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

@@ -2,5 +2,5 @@
  platform :ios, '7.0'
 
 target 'CrystalExpressPodSample' do
-  pod "CrystalExpressSDK", '~> 1.5'
+  pod "CrystalExpressSDK", '~> 1.6'
 end
