@@ -43,7 +43,7 @@
 		D5D977491BE733EE0017D960 /* CEStreamTagADHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D9773C1BE733EE0017D960 /* CEStreamTagADHelper.m */; };
 		D5D9774A1BE733EE0017D960 /* CETableViewADHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D9773E1BE733EE0017D960 /* CETableViewADHelper.m */; };
 		D5D9774B1BE733EE0017D960 /* CrystalExpress.plist in Resources */ = {isa = PBXBuildFile; fileRef = D5D9773F1BE733EE0017D960 /* CrystalExpress.plist */; };
-		F3D3ED4D1C27FFD200BF6709 /* CrystalExpressSDK-1.6.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F3D3ED4C1C27FFD200BF6709 /* CrystalExpressSDK-1.6.2.a */; };
+		F367A4951C475FBA00A742EA /* CrystalExpressSDK-1.7.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F367A4941C475FBA00A742EA /* CrystalExpressSDK-1.7.1.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,9 +117,9 @@
 		D5D9773F1BE733EE0017D960 /* CrystalExpress.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CrystalExpress.plist; sourceTree = "<group>"; };
 		D5D977411BE733EE0017D960 /* FlipDynamicADHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlipDynamicADHelper.h; sourceTree = "<group>"; };
 		D5D977421BE733EE0017D960 /* I2WAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = I2WAPI.h; sourceTree = "<group>"; };
+		F367A4941C475FBA00A742EA /* CrystalExpressSDK-1.7.1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "CrystalExpressSDK-1.7.1.a"; sourceTree = "<group>"; };
 		F3D3ED4A1C27FFD200BF6709 /* CEMediaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEMediaView.h; sourceTree = "<group>"; };
 		F3D3ED4B1C27FFD200BF6709 /* CENativeAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CENativeAd.h; sourceTree = "<group>"; };
-		F3D3ED4C1C27FFD200BF6709 /* CrystalExpressSDK-1.6.2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "CrystalExpressSDK-1.6.2.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,13 +133,13 @@
 				D5C7D0A91B3D090F00FEC621 /* libsqlite3.dylib in Frameworks */,
 				D5C7D0A71B3D090A00FEC621 /* CoreMedia.framework in Frameworks */,
 				D5C7D0A51B3D08F000FEC621 /* CoreTelephony.framework in Frameworks */,
+				F367A4951C475FBA00A742EA /* CrystalExpressSDK-1.7.1.a in Frameworks */,
 				D5C7D0A31B3D08EB00FEC621 /* libc++.dylib in Frameworks */,
 				D5C7D0A11B3D08E000FEC621 /* libz.dylib in Frameworks */,
 				D5C7D09F1B3D08D800FEC621 /* AdSupport.framework in Frameworks */,
 				D5C7D09D1B3D08CD00FEC621 /* SystemConfiguration.framework in Frameworks */,
 				D5C7D09B1B3D08C300FEC621 /* MobileCoreServices.framework in Frameworks */,
 				D5C7D0991B3D08AF00FEC621 /* MessageUI.framework in Frameworks */,
-				F3D3ED4D1C27FFD200BF6709 /* CrystalExpressSDK-1.6.2.a in Frameworks */,
 				D5C7D0971B3D08AA00FEC621 /* CFNetwork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -157,7 +157,7 @@
 		D586F1E41BA0418B0037156B /* CrystalExpressSDK */ = {
 			isa = PBXGroup;
 			children = (
-				F3D3ED4C1C27FFD200BF6709 /* CrystalExpressSDK-1.6.2.a */,
+				F367A4941C475FBA00A742EA /* CrystalExpressSDK-1.7.1.a */,
 				D5D9772D1BE733EE0017D960 /* CEAdInvocation.h */,
 				D5D9772E1BE733EE0017D960 /* CEAdInvocation.m */,
 				D5D9772F1BE733EE0017D960 /* CEADView.h */,

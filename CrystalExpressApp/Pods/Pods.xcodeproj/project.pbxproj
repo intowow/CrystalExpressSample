@@ -348,6 +348,7 @@
 		79A7D222CF0F18065C6E0CC9D6EDFAF6 /* CEStreamTagADHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CEStreamTagADHelper.h; path = Sources/CEStreamTagADHelper.h; sourceTree = "<group>"; };
 		79EFD5EBE61A5AC3B66E61439E945877 /* SSPullToRefresh-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SSPullToRefresh-prefix.pch"; sourceTree = "<group>"; };
 		7ADB08B97C669B3C6D25BBC773CDE7EE /* UIImage+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+AFNetworking.h"; path = "UIKit+AFNetworking/UIImage+AFNetworking.h"; sourceTree = "<group>"; };
+		7DFDF4A595496F117A3A668E829CB024 /* libCrystalExpressSDK-1.7.1.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = "libCrystalExpressSDK-1.7.1.a"; sourceTree = "<group>"; };
 		7FD7513F4DB055E640CF555F47C3AC9B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		815149B0066974A7F528E5F64F3EF588 /* AFDownloadRequestOperation-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AFDownloadRequestOperation-prefix.pch"; sourceTree = "<group>"; };
 		81D7F782ABF2BE2E75BE44B14CD58F81 /* NJKWebViewProgress-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NJKWebViewProgress-prefix.pch"; sourceTree = "<group>"; };
@@ -425,7 +426,6 @@
 		F2CA5584C22D44245596AFB4B1392C1C /* CECardADHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CECardADHelper.m; path = Sources/CECardADHelper.m; sourceTree = "<group>"; };
 		F8B4B6B954E74BA9FD232516AC5DB720 /* CEStreamPlacementADHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CEStreamPlacementADHelper.m; path = Sources/CEStreamPlacementADHelper.m; sourceTree = "<group>"; };
 		FAB591852A390D78927F59D8A2371C39 /* Pods-CrystalExpressApp-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CrystalExpressApp-acknowledgements.plist"; sourceTree = "<group>"; };
-		FAFE415675EE5CC5B6ABB0AB3EBE2333 /* libCrystalExpressSDK-1.6.2.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = "libCrystalExpressSDK-1.6.2.a"; sourceTree = "<group>"; };
 		FD34DC8409139668952B451609598D82 /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLResponseSerialization.h; path = AFNetworking/AFURLResponseSerialization.h; sourceTree = "<group>"; };
 		FD6D71EC43CB46294330343817CBE3F2 /* CESplashAD.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CESplashAD.h; path = Sources/CESplashAD.h; sourceTree = "<group>"; };
 		FE95C5FC6CADD0A56BE642E6C79A0659 /* Reachability-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Reachability-prefix.pch"; sourceTree = "<group>"; };
@@ -572,6 +572,14 @@
 			path = AFDownloadRequestOperation;
 			sourceTree = "<group>";
 		};
+		0ECB8C49847799CF7F9C955263702015 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7DFDF4A595496F117A3A668E829CB024 /* libCrystalExpressSDK-1.7.1.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		1054157625C1909B2C07DE864A8448E5 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -700,14 +708,6 @@
 			);
 			name = "Support Files";
 			path = "../Target Support Files/SSZipArchive";
-			sourceTree = "<group>";
-		};
-		518BBDF2FB460C25F215DBF67CA29FB7 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				FAFE415675EE5CC5B6ABB0AB3EBE2333 /* libCrystalExpressSDK-1.6.2.a */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		5230093FE21D15C78EF8CD4082FE6119 /* MTStatusBarOverlay */ = {
@@ -961,7 +961,7 @@
 				14570A634D4F203297F274BBFD98CB7A /* CETableViewADHelper.m */,
 				4279F01169DD2D57735609A40EA92A7B /* FlipDynamicADHelper.h */,
 				69852EA83F2953C0C0B704D46B938B80 /* I2WAPI.h */,
-				518BBDF2FB460C25F215DBF67CA29FB7 /* Frameworks */,
+				0ECB8C49847799CF7F9C955263702015 /* Frameworks */,
 				6551F7FBBACCAA67393CC53ACC1A24F3 /* Resources */,
 				79AB6FA302A6DD5FC9121CDD2FB2ED4A /* Support Files */,
 			);

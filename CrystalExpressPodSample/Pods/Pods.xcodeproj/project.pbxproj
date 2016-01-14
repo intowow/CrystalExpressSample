@@ -346,7 +346,6 @@
 		A71D4E4C060740C5BE266AB8B29D9B34 /* CETableViewADHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CETableViewADHelper.h; path = Sources/CETableViewADHelper.h; sourceTree = "<group>"; };
 		ACB9C3E214E970F7E3D6707885AFD259 /* AFSecurityPolicy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFSecurityPolicy.m; path = AFNetworking/AFSecurityPolicy.m; sourceTree = "<group>"; };
 		ADA621855F9C82A6C074A231CFA0FD83 /* SocketRocket-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SocketRocket-prefix.pch"; sourceTree = "<group>"; };
-		AEAE83C20AE806F5C8239EE0677962DA /* libCrystalExpressSDK-1.6.2.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = "libCrystalExpressSDK-1.6.2.a"; sourceTree = "<group>"; };
 		B13717ADD383D2CB4F585CFB533E0496 /* JSONKit-NoWarning-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JSONKit-NoWarning-prefix.pch"; sourceTree = "<group>"; };
 		B22E83AD368EBAA3B4C54E59FA46605C /* AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworking.h; path = AFNetworking/AFNetworking.h; sourceTree = "<group>"; };
 		B2F710473BB407FB707FD3A7CC421A62 /* CECardADHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CECardADHelper.m; path = Sources/CECardADHelper.m; sourceTree = "<group>"; };
@@ -381,6 +380,7 @@
 		E2712D326FAACDED37FF460C0B757537 /* CEContentADHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CEContentADHelper.h; path = Sources/CEContentADHelper.h; sourceTree = "<group>"; };
 		E358CB2CB3C41E63CA39902B7B5958D1 /* libReachability.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libReachability.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3C2A22F9F7F8CA746EC917F342F283C /* CEAdInvocation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CEAdInvocation.m; path = Sources/CEAdInvocation.m; sourceTree = "<group>"; };
+		E54838A5DF08A5993B363ABD9E4F7E14 /* libCrystalExpressSDK-1.7.1.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = "libCrystalExpressSDK-1.7.1.a"; sourceTree = "<group>"; };
 		E691B6034A4AD54A7F91703FC5552A7E /* MTStatusBarOverlay-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MTStatusBarOverlay-dummy.m"; sourceTree = "<group>"; };
 		EA7C117ACAF5A54ABF1AF4E2D60E2F60 /* SRWebSocket.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SRWebSocket.h; path = SocketRocket/SRWebSocket.h; sourceTree = "<group>"; };
 		EB41AEEB7E7789825D6FD749107EE566 /* libAFNetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAFNetworking.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -546,7 +546,7 @@
 				2B94BA8450525DBB6D73A9581306BEA7 /* CETableViewADHelper.m */,
 				13C96683EC29839187BBB51C4DC2A9CF /* FlipDynamicADHelper.h */,
 				013D810E2FA0C2E4601329A1EF5EC319 /* I2WAPI.h */,
-				C8A40078EA2A90B519980AD490C1D446 /* Frameworks */,
+				BA99B576C7815F494E18490CD03417BC /* Frameworks */,
 				85C53DC22947FD010A5B482905B1BDF3 /* Resources */,
 				9513515AFB19C6969E76F0B13EFC139B /* Support Files */,
 			);
@@ -839,6 +839,14 @@
 			path = "Target Support Files/Pods-CrystalExpressPodSample";
 			sourceTree = "<group>";
 		};
+		BA99B576C7815F494E18490CD03417BC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E54838A5DF08A5993B363ABD9E4F7E14 /* libCrystalExpressSDK-1.7.1.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C12FE1650075E5460F13A0C6A498501A /* ProgressView */ = {
 			isa = PBXGroup;
 			children = (
@@ -856,14 +864,6 @@
 				896661AC947DE79344D00D7794A65F76 /* Support Files */,
 			);
 			path = AFDownloadRequestOperation;
-			sourceTree = "<group>";
-		};
-		C8A40078EA2A90B519980AD490C1D446 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				AEAE83C20AE806F5C8239EE0677962DA /* libCrystalExpressSDK-1.6.2.a */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		C8AB623FAA276621188D334528CD8310 /* Reachability */ = {
