@@ -348,7 +348,6 @@
 		79A7D222CF0F18065C6E0CC9D6EDFAF6 /* CEStreamTagADHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CEStreamTagADHelper.h; path = Sources/CEStreamTagADHelper.h; sourceTree = "<group>"; };
 		79EFD5EBE61A5AC3B66E61439E945877 /* SSPullToRefresh-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SSPullToRefresh-prefix.pch"; sourceTree = "<group>"; };
 		7ADB08B97C669B3C6D25BBC773CDE7EE /* UIImage+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+AFNetworking.h"; path = "UIKit+AFNetworking/UIImage+AFNetworking.h"; sourceTree = "<group>"; };
-		7DFDF4A595496F117A3A668E829CB024 /* libCrystalExpressSDK-1.7.1.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = "libCrystalExpressSDK-1.7.1.a"; sourceTree = "<group>"; };
 		7FD7513F4DB055E640CF555F47C3AC9B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		815149B0066974A7F528E5F64F3EF588 /* AFDownloadRequestOperation-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AFDownloadRequestOperation-prefix.pch"; sourceTree = "<group>"; };
 		81D7F782ABF2BE2E75BE44B14CD58F81 /* NJKWebViewProgress-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NJKWebViewProgress-prefix.pch"; sourceTree = "<group>"; };
@@ -384,6 +383,7 @@
 		AC63D0D9CEC8D2FE86AEACA433829C45 /* Reachability.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		AD12107FA6F268947B629A25AB666FE3 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImageView+AFNetworking.h"; path = "UIKit+AFNetworking/UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		ADA696F9662F2E5175654DF0F70C60A5 /* zip.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = zip.c; path = SSZipArchive/minizip/zip.c; sourceTree = "<group>"; };
+		ADD010157FD4C5638277595D663F65C8 /* libCrystalExpressSDK-1.7.2.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = "libCrystalExpressSDK-1.7.2.a"; sourceTree = "<group>"; };
 		AE354E1E3C8EE2ECCDD7A447DB220C1B /* Pods-CrystalExpressApp-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CrystalExpressApp-resources.sh"; sourceTree = "<group>"; };
 		AFCCA3BB4E1438C489CED10473C55F98 /* CEAdInvocation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CEAdInvocation.h; path = Sources/CEAdInvocation.h; sourceTree = "<group>"; };
 		B2DD64D3EDBDB134B7425D61D2F7DE23 /* SSPullToRefresh-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SSPullToRefresh-dummy.m"; sourceTree = "<group>"; };
@@ -570,14 +570,6 @@
 				EA8CC5EFA7A0DFFED8FABA7F704B5ED2 /* Support Files */,
 			);
 			path = AFDownloadRequestOperation;
-			sourceTree = "<group>";
-		};
-		0ECB8C49847799CF7F9C955263702015 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				7DFDF4A595496F117A3A668E829CB024 /* libCrystalExpressSDK-1.7.1.a */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		1054157625C1909B2C07DE864A8448E5 /* Support Files */ = {
@@ -792,6 +784,14 @@
 			path = "../Target Support Files/CrystalExpressSDK";
 			sourceTree = "<group>";
 		};
+		7B693E280C65DDB773D1C66CD097DE49 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ADD010157FD4C5638277595D663F65C8 /* libCrystalExpressSDK-1.7.2.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
@@ -961,7 +961,7 @@
 				14570A634D4F203297F274BBFD98CB7A /* CETableViewADHelper.m */,
 				4279F01169DD2D57735609A40EA92A7B /* FlipDynamicADHelper.h */,
 				69852EA83F2953C0C0B704D46B938B80 /* I2WAPI.h */,
-				0ECB8C49847799CF7F9C955263702015 /* Frameworks */,
+				7B693E280C65DDB773D1C66CD097DE49 /* Frameworks */,
 				6551F7FBBACCAA67393CC53ACC1A24F3 /* Resources */,
 				79AB6FA302A6DD5FC9121CDD2FB2ED4A /* Support Files */,
 			);
