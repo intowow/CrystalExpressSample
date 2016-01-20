@@ -322,6 +322,7 @@
 		47E791C1862EF774AFBC93D503DA7C64 /* CEContentADHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CEContentADHelper.h; path = Sources/CEContentADHelper.h; sourceTree = "<group>"; };
 		490248A329E52D9A52B427AF9E2FAFE4 /* SSZipArchive.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SSZipArchive.h; path = SSZipArchive/SSZipArchive.h; sourceTree = "<group>"; };
 		4BB2363E4F2E79A376DF9C595EE79B6B /* CrystalExpressSDK-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CrystalExpressSDK-prefix.pch"; sourceTree = "<group>"; };
+		4E3D1C37BB5481D39A82B96198B66BF8 /* libCrystalExpressSDK-1.8.0.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = "libCrystalExpressSDK-1.8.0.a"; sourceTree = "<group>"; };
 		4F8F2EC36998F6FE5FC7889B514FF474 /* AFDownloadRequestOperation-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AFDownloadRequestOperation-dummy.m"; sourceTree = "<group>"; };
 		500C5BA32B5A5DFAB3933C7F73BAC70E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 		51CCE19DF45FA8B4E58255C8FEA2B77F /* CrystalExpressSDK-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CrystalExpressSDK-dummy.m"; sourceTree = "<group>"; };
@@ -383,7 +384,6 @@
 		AC63D0D9CEC8D2FE86AEACA433829C45 /* Reachability.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		AD12107FA6F268947B629A25AB666FE3 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImageView+AFNetworking.h"; path = "UIKit+AFNetworking/UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		ADA696F9662F2E5175654DF0F70C60A5 /* zip.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = zip.c; path = SSZipArchive/minizip/zip.c; sourceTree = "<group>"; };
-		ADD010157FD4C5638277595D663F65C8 /* libCrystalExpressSDK-1.7.2.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = "libCrystalExpressSDK-1.7.2.a"; sourceTree = "<group>"; };
 		AE354E1E3C8EE2ECCDD7A447DB220C1B /* Pods-CrystalExpressApp-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CrystalExpressApp-resources.sh"; sourceTree = "<group>"; };
 		AFCCA3BB4E1438C489CED10473C55F98 /* CEAdInvocation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CEAdInvocation.h; path = Sources/CEAdInvocation.h; sourceTree = "<group>"; };
 		B2DD64D3EDBDB134B7425D61D2F7DE23 /* SSPullToRefresh-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SSPullToRefresh-dummy.m"; sourceTree = "<group>"; };
@@ -638,6 +638,14 @@
 			name = Serialization;
 			sourceTree = "<group>";
 		};
+		1E9C78B7175EB195AC37074020B1FB28 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4E3D1C37BB5481D39A82B96198B66BF8 /* libCrystalExpressSDK-1.8.0.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		34537DCA8EDBBB292CB934ECAE38234F /* ProgressView */ = {
 			isa = PBXGroup;
 			children = (
@@ -782,14 +790,6 @@
 			);
 			name = "Support Files";
 			path = "../Target Support Files/CrystalExpressSDK";
-			sourceTree = "<group>";
-		};
-		7B693E280C65DDB773D1C66CD097DE49 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				ADD010157FD4C5638277595D663F65C8 /* libCrystalExpressSDK-1.7.2.a */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -961,7 +961,7 @@
 				14570A634D4F203297F274BBFD98CB7A /* CETableViewADHelper.m */,
 				4279F01169DD2D57735609A40EA92A7B /* FlipDynamicADHelper.h */,
 				69852EA83F2953C0C0B704D46B938B80 /* I2WAPI.h */,
-				7B693E280C65DDB773D1C66CD097DE49 /* Frameworks */,
+				1E9C78B7175EB195AC37074020B1FB28 /* Frameworks */,
 				6551F7FBBACCAA67393CC53ACC1A24F3 /* Resources */,
 				79AB6FA302A6DD5FC9121CDD2FB2ED4A /* Support Files */,
 			);

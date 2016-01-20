@@ -303,7 +303,6 @@
 		486B4B422CE9CF64F8E66C14B5A74D80 /* AFHTTPRequestOperationManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFHTTPRequestOperationManager.m; path = AFNetworking/AFHTTPRequestOperationManager.m; sourceTree = "<group>"; };
 		4D155184907AFB30515F3A1C0170A4FD /* AFNetworking-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AFNetworking-dummy.m"; sourceTree = "<group>"; };
 		4D344A7A5D0C2E986919CC4FF0B845CE /* NJKWebViewProgress.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NJKWebViewProgress.h; path = NJKWebViewProgress/NJKWebViewProgress.h; sourceTree = "<group>"; };
-		4D5F9868B9C77AB5D41EB7DB35287E32 /* libCrystalExpressSDK-1.7.2.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = "libCrystalExpressSDK-1.7.2.a"; sourceTree = "<group>"; };
 		4F9134CAC113C985D19F7801B0827EDD /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLConnectionOperation.m; path = AFNetworking/AFURLConnectionOperation.m; sourceTree = "<group>"; };
 		500C5BA32B5A5DFAB3933C7F73BAC70E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 		5429890B99C57B9562249335240E5F19 /* JSONKit-NoWarning-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JSONKit-NoWarning-dummy.m"; sourceTree = "<group>"; };
@@ -361,6 +360,7 @@
 		BB9ED2AE6F2DE80CFA4323377068B89E /* mztools.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = mztools.h; path = SSZipArchive/minizip/mztools.h; sourceTree = "<group>"; };
 		BF88D340F630214580B156E89B0DC096 /* AFURLSessionManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLSessionManager.h; path = AFNetworking/AFURLSessionManager.h; sourceTree = "<group>"; };
 		C34F4542E2627519183C26AAD06313DB /* Reachability.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		C3A16C3509767B935D24D78F5B144964 /* libCrystalExpressSDK-1.8.0.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = "libCrystalExpressSDK-1.8.0.a"; sourceTree = "<group>"; };
 		C44A2274C612675043D1A52C267C4C8F /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
 		CAD9C2A495F53123F5B1EC0FF6B0BC7B /* Reachability.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		CDE1C048CEA747952CCCB1220D7AAAAB /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFHTTPSessionManager.m; path = AFNetworking/AFHTTPSessionManager.m; sourceTree = "<group>"; };
@@ -521,14 +521,6 @@
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
-		29CD987046E7906EB2DD338AB19ACDA1 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				4D5F9868B9C77AB5D41EB7DB35287E32 /* libCrystalExpressSDK-1.7.2.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		2E420F5C7FFC8200ED57D58A8EA90C9B /* CrystalExpressSDK */ = {
 			isa = PBXGroup;
 			children = (
@@ -554,7 +546,7 @@
 				2B94BA8450525DBB6D73A9581306BEA7 /* CETableViewADHelper.m */,
 				13C96683EC29839187BBB51C4DC2A9CF /* FlipDynamicADHelper.h */,
 				013D810E2FA0C2E4601329A1EF5EC319 /* I2WAPI.h */,
-				29CD987046E7906EB2DD338AB19ACDA1 /* Frameworks */,
+				EC7C334DCF1B12FD68616B445DA4FE72 /* Frameworks */,
 				85C53DC22947FD010A5B482905B1BDF3 /* Resources */,
 				9513515AFB19C6969E76F0B13EFC139B /* Support Files */,
 			);
@@ -905,6 +897,14 @@
 				68441B0702CFD139F83CB2D06878ABE4 /* Support Files */,
 			);
 			path = MTStatusBarOverlay;
+			sourceTree = "<group>";
+		};
+		EC7C334DCF1B12FD68616B445DA4FE72 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C3A16C3509767B935D24D78F5B144964 /* libCrystalExpressSDK-1.8.0.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		F692E569108159D2C205168094EB66D4 /* SSZipArchive */ = {
